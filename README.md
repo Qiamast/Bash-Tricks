@@ -23,6 +23,8 @@ This repository is open source and allows for contributions from other users. If
 ## Reference
 
 In addition to the scripts, this repository also includes a section on common bash commands and syntax to serve as a quick reference for users who are new to bash scripting. Check it out to learn more about bash and how to use it effectively.
+- If you dont know bash script, [this wiki is for you](https://github.com/Qiamast/Bash-Tricks/wiki "this wiki is for you").
+
 
 ## Support
 
