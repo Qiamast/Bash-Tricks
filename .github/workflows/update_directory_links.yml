@@ -3,7 +3,7 @@ name: Update README with directory links
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   update-readme:
