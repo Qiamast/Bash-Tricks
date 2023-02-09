@@ -7,8 +7,6 @@ A collection of useful bash scripts for various tasks such as automation, backup
 - [Backup script](https://github.com/Qiamast/Bash-Tricks/tree/master/backups/creates%20tar%20archive%20of%20dir) - A bash script that creates a backup of your important files.
 - [Network management script](https://github.com/Qiamast/Bash-Tricks/tree/master/network_management/network_script_1) - A bash script that helps you manage your network.
 
-# Directory Links
-
 ## How to use
 
 Each script includes a detailed README file that explains what the script does, how to use it, and any dependencies it may have. Simply follow the instructions in the README file to use each script.
