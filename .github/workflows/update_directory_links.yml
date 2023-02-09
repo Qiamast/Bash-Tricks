@@ -1,0 +1,43 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: List directories
+      run: |
+        # Get all directories in the repository
+        DIRS=$(find . -type d -not -path "./.git/*")
+
+        # Create a markdown list of directory links
+        MARKDOWN=""
+        for dir in $DIRS; do
+          link="$(echo $dir | sed 's#.*/##')"
+          MARKDOWN="$MARKDOWN- [$link]($dir)\n"
+        done
+
+        # Check if the README.md file contains the marker
+        if grep -q "# Directory Links" README.md; then
+          # Replace the contents of the marker with the new list of links
+          sed -i '/# Directory Links/{n;s/.*/'"$MARKDOWN"'/;};' README.md
+        else
+          # If the marker is not found, add it to the end of the file
+          echo -e "\n# Directory Links\n$MARKDOWN" >> README.md
+        fi
+
+    - name: Commit and push changes
+      uses: endpoint/action-push-changes@v2
+      with:
+        repository: ${{ secrets.GITHUB_REPOSITORY }}
+        branch: main
+        message: 'Update README with new directory links'
+        token: ${{ secrets.GITHUB_TOKEN }}
