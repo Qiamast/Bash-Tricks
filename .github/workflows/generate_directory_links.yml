@@ -11,11 +11,11 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Generate script list
       run: |
-        scripts=$(ls scripts/ | grep -v -E "(ignore1|ignore2)")
+        scripts=$(ls scripts/ | grep -v -E "('.github'|'New Script')")
         script_list=""
         for script in $scripts; do
           script_list+="- [$script](scripts/$script)\n"
