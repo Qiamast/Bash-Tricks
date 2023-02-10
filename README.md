@@ -1,4 +1,4 @@
-# Bash-Tricks
+# Bash Tricks
 
 A collection of useful bash scripts for various tasks such as automation, backups, network management, and more. Each script is designed to make your workflow more efficient and streamline your tasks.
 
@@ -6,9 +6,6 @@ A collection of useful bash scripts for various tasks such as automation, backup
 - [Automation script](https://github.com/Qiamast/Bash-Tricks/tree/master/automation/Automated%20Email) - A bash script that automates a task of your choice.
 - [Backup script](https://github.com/Qiamast/Bash-Tricks/tree/master/backups/creates%20tar%20archive%20of%20dir) - A bash script that creates a backup of your important files.
 - [Network management script](https://github.com/Qiamast/Bash-Tricks/tree/master/network_management/network_script_1) - A bash script that helps you manage your network.
-
-# Start Scripts
-# End Scripts
 
 ## How to use
 
