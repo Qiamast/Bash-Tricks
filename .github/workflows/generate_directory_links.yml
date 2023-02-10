@@ -15,7 +15,7 @@ jobs:
 
     - name: Generate script list
       run: |
-        scripts=$(ls scripts/ | grep -v -E "('New Script'|'.github')")
+        scripts=$(ls scripts/ | grep -v -E "(ignore1|ignore2)")
         script_list=""
         for script in $scripts; do
           script_list+="- [$script](scripts/$script)\n"
@@ -23,7 +23,7 @@ jobs:
 
     - name: Update README
       run: |
-        start_marker="# Start Scripts"
+        start_marker="# Scripts"
         end_marker="# End Scripts"
         new_section="$start_marker\n$script_list\n$end_marker"
         sed -i "/$start_marker/,/$end_marker/c\\$new_section" README.md
@@ -31,4 +31,4 @@ jobs:
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: 'Update README with latedt script list'
+        commit_message: 'Update README with bash script list'
