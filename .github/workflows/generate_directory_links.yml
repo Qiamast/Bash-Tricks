@@ -29,6 +29,6 @@ jobs:
         sed -i "/$start_marker/,/$end_marker/c\\$new_section" README.md
 
     - name: Commit changes
-      uses: endormi/action-auto-commit@v1
+      uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: 'Update README with latedt script list'
