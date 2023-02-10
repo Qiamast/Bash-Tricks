@@ -1,0 +1,34 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update_readme:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Generate script list
+      run: |
+        scripts=$(ls scripts/ | grep -v -E "('New Script'|'.github')")
+        script_list=""
+        for script in $scripts; do
+          script_list+="- [$script](scripts/$script)\n"
+        done
+
+    - name: Update README
+      run: |
+        start_marker="# Start Scripts"
+        end_marker="# End Scripts"
+        new_section="$start_marker\n$script_list\n$end_marker"
+        sed -i "/$start_marker/,/$end_marker/c\\$new_section" README.md
+
+    - name: Commit changes
+      uses: endormi/action-auto-commit@v1
+      with:
+        commit_message: 'Update README with latedt script list'
