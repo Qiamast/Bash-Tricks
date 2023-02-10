@@ -3,7 +3,7 @@ name: Update README
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   update_readme:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Generate script list
       run: |
@@ -23,7 +23,7 @@ jobs:
 
     - name: Update README
       run: |
-        start_marker="# Scripts"
+        start_marker="# Start Scripts"
         end_marker="# End Scripts"
         new_section="$start_marker\n$script_list\n$end_marker"
         sed -i "/$start_marker/,/$end_marker/c\\$new_section" README.md
@@ -31,4 +31,4 @@ jobs:
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: 'Update README with bash script list'
+        commit_message: 'Update README with latest bash script'
